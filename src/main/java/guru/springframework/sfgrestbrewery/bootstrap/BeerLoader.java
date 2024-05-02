@@ -3,6 +3,7 @@ package guru.springframework.sfgrestbrewery.bootstrap;
 import guru.springframework.sfgrestbrewery.domain.Beer;
 import guru.springframework.sfgrestbrewery.domain.BeerStyleEnum;
 import guru.springframework.sfgrestbrewery.domain.Temp;
+import guru.springframework.sfgrestbrewery.domain.TempType;
 import guru.springframework.sfgrestbrewery.repositories.BeerRepository;
 import guru.springframework.sfgrestbrewery.repositories.TempRepository;
 import lombok.RequiredArgsConstructor;
@@ -65,21 +66,21 @@ public class BeerLoader implements CommandLineRunner {
     private synchronized void loadTempObjects() {
         log.debug("Loading initial data. Count is: {}", beerRepository.count());
         if(tempRepository.count() ==0){
-            tempRepository.save(Temp.builder().name("Temp10").build());
-            tempRepository.save(Temp.builder().name("Temp20").build());
-            tempRepository.save(Temp.builder().name("Temp30").build());
-            tempRepository.save(Temp.builder().name("Temp40").build());
-            tempRepository.save(Temp.builder().name("Temp50").build());
-            tempRepository.save(Temp.builder().name("Temp60").build());
-            tempRepository.save(Temp.builder().name("Temp70").build());
-            tempRepository.save(Temp.builder().name("Temp80").build());
-            tempRepository.save(Temp.builder().name("Temp90").build());
-            tempRepository.save(Temp.builder().name("Temp100").build());
-            tempRepository.save(Temp.builder().name("Temp110").build());
-            tempRepository.save(Temp.builder().name("Temp120").build());
-            tempRepository.save(Temp.builder().name("Temp130").build());
-            tempRepository.save(Temp.builder().name("Temp140").build());
-            tempRepository.save(Temp.builder().name("Temp150").build());
+            tempRepository.save(Temp.builder().name("Temp10").type(TempType.TYPE_A).build());
+            tempRepository.save(Temp.builder().name("Temp20").type(TempType.TYPE_B).build());
+            tempRepository.save(Temp.builder().name("Temp30").type(TempType.TYPE_C).build());
+            tempRepository.save(Temp.builder().name("Temp40").type(TempType.TYPE_D).build());
+            tempRepository.save(Temp.builder().name("Temp50").type(TempType.TYPE_E).build());
+            tempRepository.save(Temp.builder().name("Temp60").type(TempType.TYPE_F).build());
+            tempRepository.save(Temp.builder().name("Temp70").type(TempType.TYPE_G).build());
+            tempRepository.save(Temp.builder().name("Temp80").type(TempType.TYPE_H).build());
+            tempRepository.save(Temp.builder().name("Temp90").type(TempType.TYPE_A).build());
+            tempRepository.save(Temp.builder().name("Temp100").type(TempType.TYPE_B).build());
+            tempRepository.save(Temp.builder().name("Temp110").type(TempType.TYPE_C).build());
+            tempRepository.save(Temp.builder().name("Temp120").type(TempType.TYPE_D).build());
+            tempRepository.save(Temp.builder().name("Temp130").type(TempType.TYPE_E).build());
+            tempRepository.save(Temp.builder().name("Temp140").type(TempType.TYPE_F).build());
+            tempRepository.save(Temp.builder().name("Temp150").type(TempType.TYPE_G).build());
             log.debug("Temp Records loaded: {}", tempRepository.count());
 
         }
