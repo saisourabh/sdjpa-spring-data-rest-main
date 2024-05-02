@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SfgRestfulBreweryApplication {
 
 	public static void main(String[] args) {
+		System.out.println("After Initial Commit printing ");
 		SpringApplication.run(SfgRestfulBreweryApplication.class, args);
 	}
 
