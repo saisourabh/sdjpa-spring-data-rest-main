@@ -2,7 +2,9 @@ package guru.springframework.sfgrestbrewery.bootstrap;
 
 import guru.springframework.sfgrestbrewery.domain.Beer;
 import guru.springframework.sfgrestbrewery.domain.BeerStyleEnum;
+import guru.springframework.sfgrestbrewery.domain.Temp;
 import guru.springframework.sfgrestbrewery.repositories.BeerRepository;
+import guru.springframework.sfgrestbrewery.repositories.TempRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
@@ -53,12 +55,35 @@ public class BeerLoader implements CommandLineRunner {
 
 
     private final BeerRepository beerRepository;
+    private final TempRepository tempRepository;
 
     @Override
     public void run(String... args) throws Exception {
         loadBeerObjects();
+        loadTempObjects();
     }
+    private synchronized void loadTempObjects() {
+        log.debug("Loading initial data. Count is: {}", beerRepository.count());
+        if(tempRepository.count() ==0){
+            tempRepository.save(Temp.builder().name("Temp10").build());
+            tempRepository.save(Temp.builder().name("Temp20").build());
+            tempRepository.save(Temp.builder().name("Temp30").build());
+            tempRepository.save(Temp.builder().name("Temp40").build());
+            tempRepository.save(Temp.builder().name("Temp50").build());
+            tempRepository.save(Temp.builder().name("Temp60").build());
+            tempRepository.save(Temp.builder().name("Temp70").build());
+            tempRepository.save(Temp.builder().name("Temp80").build());
+            tempRepository.save(Temp.builder().name("Temp90").build());
+            tempRepository.save(Temp.builder().name("Temp100").build());
+            tempRepository.save(Temp.builder().name("Temp110").build());
+            tempRepository.save(Temp.builder().name("Temp120").build());
+            tempRepository.save(Temp.builder().name("Temp130").build());
+            tempRepository.save(Temp.builder().name("Temp140").build());
+            tempRepository.save(Temp.builder().name("Temp150").build());
+            log.debug("Temp Records loaded: {}", tempRepository.count());
 
+        }
+    }
     private synchronized void loadBeerObjects() {
         log.debug("Loading initial data. Count is: {}", beerRepository.count() );
 
